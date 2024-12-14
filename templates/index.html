@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voice-Based Form Filling</title>
+    <style>
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 80%;
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #4CAF50;
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-size: 18px;
+            color: #555;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .input-wrapper {
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="tel"]:focus,
+        input[type="number"]:focus {
+            border-color: #4CAF50;
+            outline: none;
+        }
+
+        .mic-btn {
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+
+        .mic-btn img {
+            width: 30px;
+            height: 30px;
+        }
+
+        .submit-btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        .submit-btn:hover {
+            background-color: #45a049;
+        }
+
+        .form-group input {
+            margin-bottom: 10px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                width: 95%;
+                padding: 15px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            .submit-btn {
+                font-size: 16px;
+            }
+
+            .mic-btn img {
+                width: 25px;
+                height: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Voice-Based Form Filling</h1>
+        <form id="voiceForm" method="POST">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <div class="input-wrapper">
+                    <input type="text" id="name" name="name" placeholder="Say your name" required>
+                    <button type="button" class="mic-btn" data-field="name">
+                        <img src="{{ url_for('static', filename='mic.svg') }}" alt="Microphone">
+                    </button>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <div class="input-wrapper">
+                    <input type="email" id="email" name="email" placeholder="Say your email" required>
+                    <button type="button" class="mic-btn" data-field="email">
+                        <img src="{{ url_for('static', filename='mic.svg') }}" alt="Microphone">
+                    </button>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone:</label>
+                <div class="input-wrapper">
+                    <input type="tel" id="phone" name="phone" placeholder="Say your phone number" required>
+                    <button type="button" class="mic-btn" data-field="phone">
+                        <img src="{{ url_for('static', filename='mic.svg') }}" alt="Microphone">
+                    </button>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="age">Age:</label>
+                <div class="input-wrapper">
+                    <input type="number" id="age" name="age" placeholder="Say your age" required>
+                    <button type="button" class="mic-btn" data-field="age">
+                        <img src="{{ url_for('static', filename='mic.svg') }}" alt="Microphone">
+                    </button>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="education">Highest Education:</label>
+                <div class="input-wrapper">
+                    <input type="text" id="education" name="education" placeholder="Say your highest education" required>
+                    <button type="button" class="mic-btn" data-field="education">
+                        <img src="{{ url_for('static', filename='mic.svg') }}" alt="Microphone">
+                    </button>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="course">Course:</label>
+                <div class="input-wrapper">
+                    <input type="text" id="course" name="course" placeholder="Say your course" required>
+                    <button type="button" class="mic-btn" data-field="course">
+                        <img src="{{ url_for('static', filename='mic.svg') }}" alt="Microphone">
+                    </button>
+                </div>
+            </div>
+            <button type="submit" class="submit-btn">Submit</button>
+        </form>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
