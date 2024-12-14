@@ -1,43 +1,33 @@
-# Voice-Based Form Filling
+# Voice-Based Form Filling Application
 
-This is a web application that allows users to fill out forms using their voice. The project uses Flask as the backend and integrates OpenAI’s Speech-to-Text API for processing voice input. The form data is saved to a MySQL database.
+## Overview
+This project is a **Voice-Based Form Filling Application** that allows users to fill out forms using their voice. It leverages the **Web Speech API** for speech recognition, enabling users to interact with the form without needing to type. This is particularly useful for people with disabilities, for hands-free form filling, or for enhancing the user experience with voice-activated controls.
 
 ## Features
-- **Voice Input**: Users can speak their responses to form fields.
-- **Form Fields**: The form includes fields for name, email, phone, age, education, and course.
-- **MySQL Integration**: The data is saved to a MySQL database for future reference.
+- **Voice Input**: Users can fill out the form by speaking instead of typing.
+- **Web Speech API**: Utilizes the Web Speech API for converting speech to text in real-time.
+- **Advanced UI**: The form has a clean, user-friendly interface designed with modern web technologies.
+- **Multi-field Form**: Collects data such as Name, Email, Phone, Age, Education, and Course.
+- **Flask Backend**: The backend is built using **Flask**, a lightweight Python web framework, which handles form submissions and data storage.
+- **MySQL Database**: Data is stored in a MySQL database, ensuring persistence and easy access.
 
-## Setup
+## Technologies Used
+- **Frontend**: HTML, CSS, JavaScript
+- **Backend**: Python, Flask
+- **Database**: MySQL
+- **Web Speech API**: For speech-to-text functionality
 
-### Requirements:
+## Setup and Installation
+
+### Prerequisites
 - Python 3.x
 - Flask
-- MySQL
-- OpenAI Speech-to-Text API
+- MySQL Database
+- Web Browser with Web Speech API support (e.g., Google Chrome)
 
-### Installation:
-1. Clone this repository:
-    ```bash
-    git clone https://github.com/your-username/Voice-Based-Form-Filling.git
-    ```
+### Steps to Run Locally
 
-2. Install the dependencies:
-    ```bash
-    cd Voice-Based-Form-Filling
-    pip install -r requirements.txt
-    ```
-
-3. Set up the `.env` file with your MySQL credentials and OpenAI API key.
-
-4. Run the Flask application:
-    ```bash
-    python app.py
-    ```
-
-### Usage:
-- Access the form at `http://127.0.0.1:5000/`.
-- Use the microphone button to fill out the form via voice input.
-
-## License
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
+1. **Clone the Repository**:
+   ```bash
+   git clone https://github.com/Vaibhav-prog-creator/Beyond-QWERTY-Voice-Based-Form-Filling.git
+   cd Beyond-QWERTY-Voice-Based-Form-Filling
