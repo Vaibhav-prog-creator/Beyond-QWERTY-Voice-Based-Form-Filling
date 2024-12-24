@@ -3,7 +3,7 @@ import mysql.connector
 import os
 
 app = Flask(__name__)
-app.secret_key = os.getenv('SECRET_KEY', 'your_default_secret_key')  # Replace with your actual secret key
+app.secret_key = os.getenv('SECRET_KEY', 'a4f5d9e7b2c0a8f4d1b7c3e9f1f0b6a2')   
 
 # Fetch database credentials from environment variables
 db_config = {
