@@ -1,9 +1,13 @@
 from flask import Flask, render_template, request
 import mysql.connector
 import os
+from dotenv import load_dotenv  # Import dotenv to load environment variables
+
+# Load environment variables from the .env file
+load_dotenv()
 
 app = Flask(__name__)
-app.secret_key = os.getenv('SECRET_KEY', 'a4f5d9e7b2c0a8f4d1b7c3e9f1f0b6a2')   
+app.secret_key = os.getenv('SECRET_KEY', 'a4f5d9e7b2c0a8f4d1b7c3e9f1f0b6a2')  # Default secret key if not set in .env
 
 # Fetch database credentials from environment variables
 db_config = {
@@ -25,16 +29,24 @@ def index():
         address = request.form.get("address")
         
         try:
+            # Connect to the MySQL database
             connection = mysql.connector.connect(**db_config)
             cursor = connection.cursor()
+
+            # Insert form data into the database
             query = """
                 INSERT INTO information (name, email, phone, age, education, course, address)
                 VALUES (%s, %s, %s, %s, %s, %s, %s)
             """
             cursor.execute(query, (name, email, phone, age, education, course, address))
+
+            # Commit changes to the database
             connection.commit()
+            
+            # Close the cursor and connection
             cursor.close()
             connection.close()
+
             return "Form submitted and data saved to the database successfully!"
         except mysql.connector.Error as err:
             return f"Error: {err}"
