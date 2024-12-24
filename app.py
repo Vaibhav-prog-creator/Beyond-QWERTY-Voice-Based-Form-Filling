@@ -2,6 +2,8 @@ from flask import Flask, render_template, request
 import mysql.connector
 import os
 from dotenv import load_dotenv  # Import dotenv to load environment variables
+ 
+
 
 # Load environment variables from the .env file
 load_dotenv()
