@@ -3,13 +3,14 @@ import mysql.connector
 import os
 
 app = Flask(__name__)
-app.secret_key = 'd1f3670c663dc08290c59bab47d05daa'  # Replace with the key you generated
+app.secret_key = os.getenv('SECRET_KEY', 'your_default_secret_key')  # Replace with your actual secret key
 
+# Fetch database credentials from environment variables
 db_config = {
-    "host": "127.0.0.1",
-    "user": "root",
-    "password": "root",
-    "database": "form"
+    "host": os.getenv("DB_HOST", "127.0.0.1"),  # Default to 127.0.0.1 if not set
+    "user": os.getenv("DB_USER", "root"),
+    "password": os.getenv("DB_PASSWORD", "root"),
+    "database": os.getenv("DB_NAME", "form")
 }
 
 @app.route("/", methods=["GET", "POST"])
@@ -21,7 +22,8 @@ def index():
         age = request.form.get("age")
         education = request.form.get("education")
         course = request.form.get("course")
-        address=request.form.get("address")
+        address = request.form.get("address")
+        
         try:
             connection = mysql.connector.connect(**db_config)
             cursor = connection.cursor()
