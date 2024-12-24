@@ -6,7 +6,7 @@ This project is a **Voice-Based Form Filling Application** that allows users to 
 ## Features
 - **Voice Input**: Users can fill out the form by speaking instead of typing.
 - **Web Speech API**: Utilizes the Web Speech API for converting speech to text in real-time.
-- **Advanced UI**: The form has a clean, user-friendly interface designed with modern web technologies.
+- **Advanced UI**: The form has a clean, user-friendly interface designed with modern Web technologies.
 - **Multi-field Form**: Collects data such as Name, Email, Phone, Age, Education, and Course.
 - **Flask Backend**: The backend is built using **Flask**, a lightweight Python web framework, which handles form submissions and data storage.
 - **MySQL Database**: Data is stored in a MySQL database, ensuring persistence and easy access.

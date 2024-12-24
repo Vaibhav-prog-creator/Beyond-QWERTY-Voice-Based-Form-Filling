@@ -21,15 +21,15 @@ def index():
         age = request.form.get("age")
         education = request.form.get("education")
         course = request.form.get("course")
-
+        address=request.form.get("address")
         try:
             connection = mysql.connector.connect(**db_config)
             cursor = connection.cursor()
             query = """
-                INSERT INTO information (name, email, phone, age, education, course)
-                VALUES (%s, %s, %s, %s, %s, %s)
+                INSERT INTO information (name, email, phone, age, education, course, address)
+                VALUES (%s, %s, %s, %s, %s, %s, %s)
             """
-            cursor.execute(query, (name, email, phone, age, education, course))
+            cursor.execute(query, (name, email, phone, age, education, course, address))
             connection.commit()
             cursor.close()
             connection.close()
