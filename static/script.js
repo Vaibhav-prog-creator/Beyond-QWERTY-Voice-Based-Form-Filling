@@ -19,11 +19,12 @@ function startVoiceRecognition(fieldId) {
     recognition.onresult = function(event) {
         let transcript = event.results[0][0].transcript;
 
+        // Handle email field differently to replace 'at' with '@'
         if (fieldId === 'email') {
             transcript = transcript.replace(/\bat\b/g, '@').replace(/\s+/g, '').toLowerCase();
         }
 
-        document.getElementById(fieldId).value = transcript; 
+        document.getElementById(fieldId).value = transcript;
     };
 
     recognition.onerror = function(event) {

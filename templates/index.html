@@ -36,7 +36,7 @@
 
         h1 {
             text-align: center;
-            color: orange; /* Changed to orange */
+            color: orange;
             margin-bottom: 30px;
         }
 
@@ -60,7 +60,8 @@
         input[type="text"],
         input[type="email"],
         input[type="tel"],
-        input[type="number"] {
+        input[type="number"],
+        input[type="date"] {
             width: 100%;
             padding: 10px;
             border: 2px solid #ddd;
@@ -71,7 +72,8 @@
         input[type="text"]:focus,
         input[type="email"]:focus,
         input[type="tel"]:focus,
-        input[type="number"]:focus {
+        input[type="number"]:focus,
+        input[type="date"]:focus {
             border-color: #4CAF50;
             outline: none;
         }
@@ -108,6 +110,18 @@
             margin-bottom: 10px;
         }
 
+        /* Navigation for Login/Signup */
+        .nav-links {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: orange;
+            font-size: 18px;
+        }
+
         /* Responsive Design */
         @media (max-width: 768px) {
             .container {
@@ -132,8 +146,9 @@
 </head>
 <body>
     <div class="container">
-        <h1>Admission Form Filling</h1> <!-- Changed to Admission Form Filling -->
+        <h1>Admission Form Filling</h1>
         <form id="voiceForm" method="POST">
+            <!-- Existing Fields -->
             <div class="form-group">
                 <label for="name">Name:</label>
                 <div class="input-wrapper">
@@ -188,7 +203,28 @@
                     </button>
                 </div>
             </div>
-            <div class="form-group"> <!-- Added Address Field -->
+
+            <!-- New Fields for 12th and 10th Percentages -->
+            <div class="form-group">
+                <label for="percentage_12th">12th Percentage:</label>
+                <div class="input-wrapper">
+                    <input type="text" id="percentage_12th" name="percentage_12th" placeholder="Say your 12th percentage" required>
+                    <button type="button" class="mic-btn" data-field="percentage_12th">
+                        <img src="{{ url_for('static', filename='mic.svg') }}" alt="Microphone">
+                    </button>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="percentage_10th">10th Percentage:</label>
+                <div class="input-wrapper">
+                    <input type="text" id="percentage_10th" name="percentage_10th" placeholder="Say your 10th percentage" required>
+                    <button type="button" class="mic-btn" data-field="percentage_10th">
+                        <img src="{{ url_for('static', filename='mic.svg') }}" alt="Microphone">
+                    </button>
+                </div>
+            </div>
+
+            <div class="form-group">
                 <label for="address">Address:</label>
                 <div class="input-wrapper">
                     <input type="text" id="address" name="address" placeholder="Say your address" required>
@@ -197,8 +233,15 @@
                     </button>
                 </div>
             </div>
+
             <button type="submit" class="submit-btn">Submit</button>
         </form>
+
+        <!-- Links for Sign Up and Sign In -->
+        <div class="nav-links">
+            <p>Already have an account? <a href="/signin">Sign In</a></p>
+            <p>Don't have an account? <a href="/signup">Sign Up</a></p>
+        </div>
     </div>
 
     <script src="{{ url_for('static', filename='script.js') }}"></script>

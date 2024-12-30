@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <!-- Bootstrap Icons CDN -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+
+        .container {
+            width: 80%;
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: orange;
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        label {
+            font-size: 18px;
+            color: #555;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .submit-btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        .submit-btn:hover {
+            background-color: #45a049;
+        }
+
+        .redirect {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .redirect a {
+            text-decoration: none;
+            color: orange;
+        }
+
+        .mic-btn {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+        }
+
+        .mic-btn img {
+            width: 25px;
+            height: 25px;
+        }
+
+        .input-wrapper {
+            position: relative;
+        }
+
+        /* Move the eye icon to the next row (below the input field) */
+        .toggle-password {
+            position: absolute;
+            right: 10px;
+            top: 100%; /* Move the eye icon below the input field */
+            cursor: pointer;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Sign Up</h1>
+        <form id="signupForm" method="POST" action="/signup">
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <div class="input-wrapper">
+                    <input type="text" id="username" name="username" placeholder="Say your username" required>
+                    <button type="button" class="mic-btn" data-field="username">
+                        <img src="{{ url_for('static', filename='mic.svg') }}" alt="Microphone">
+                    </button>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <div class="input-wrapper">
+                    <input type="email" id="email" name="email" placeholder="Say your email" required>
+                    <button type="button" class="mic-btn" data-field="email">
+                        <img src="{{ url_for('static', filename='mic.svg') }}" alt="Microphone">
+                    </button>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <div class="input-wrapper">
+                    <input type="password" id="password" name="password" placeholder="Say your password" required>
+                    <button type="button" class="mic-btn" data-field="password">
+                        <img src="{{ url_for('static', filename='mic.svg') }}" alt="Microphone">
+                    </button>
+                    <!-- Eye icon for show/hide password -->
+                    <button type="button" class="toggle-password" onclick="togglePassword()">
+                        <i class="bi bi-eye-slash" id="eye-icon"></i> <!-- Bootstrap eye icon -->
+                    </button>
+                </div>
+            </div>
+            <button type="submit" class="submit-btn">Sign Up</button>
+        </form>
+        <div class="redirect">
+            Already have an account? <a href="/signin">Sign In</a>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+    <script>
+        function togglePassword() {
+            const passwordField = document.getElementById('password');
+            const eyeIcon = document.getElementById('eye-icon');
+            
+            if (passwordField.type === 'password') {
+                passwordField.type = 'text';
+                eyeIcon.classList.remove('bi-eye-slash');
+                eyeIcon.classList.add('bi-eye'); // Change icon to open eye
+            } else {
+                passwordField.type = 'password';
+                eyeIcon.classList.remove('bi-eye');
+                eyeIcon.classList.add('bi-eye-slash'); // Change icon to closed eye
+            }
+        }
+    </script>
+</body>
+</html>
