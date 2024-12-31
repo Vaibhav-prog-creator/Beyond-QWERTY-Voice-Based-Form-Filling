@@ -10,7 +10,7 @@ https://beyond-qwerty-voice-based-form-filling-1.onrender.com
 
 ## Features
 
-- **Voice Input Integration**: Users can fill forms using speech, leveraging OpenAI's Speech-to-Text API.
+- **Voice Input Integration**: Users can fill forms using speech, leveraging OpenAI's Speech-to-Text API and **Web Speech API** for voice recognition.
 - **Database Support**: Data is stored in a MySQL database for efficient management.
 - **Modern Frontend**: A visually appealing interface designed for a smooth user experience.
 - **Scalable Backend**: Built with Flask, ensuring reliability and scalability.
@@ -23,6 +23,7 @@ https://beyond-qwerty-voice-based-form-filling-1.onrender.com
 ### Frontend
 - **HTML5 / CSS3 / JavaScript**
 - Bootstrap for responsive design
+- **Web Speech API** for voice input processing
 
 ### Backend
 - **Python** with Flask framework
@@ -52,7 +53,7 @@ https://beyond-qwerty-voice-based-form-filling-1.onrender.com
    ```bash
    git clone https://github.com/Vaibhav-prog-creator/Admission_form_filling.git
    cd Admission_form_filling
-   ```
+Install the required dependencies:
 
 2. Install the required dependencies:
    ```bash
@@ -65,79 +66,58 @@ https://beyond-qwerty-voice-based-form-filling-1.onrender.com
 
 4. Create a `.env` file for sensitive configurations:
    ```env
-
-FLASK_APP=app.py
+   FLASK_APP=app.py
 FLASK_ENV=development
 SECRET_KEY=a4f5d9e7b2c0a8f4d1b7c3e9f1f0b6a2
+
 DB_HOST=sql12.freesqldatabase.com
 DB_USER=sql12754845
 DB_PASSWORD=LWrgRcrnVZ
 DB_NAME=sql12754845
 DATABASE_URL=mysql+pymysql://sql12754845:LWrgRcrnVZ@sql12.freesqldatabase.com:3306/sql12754845
-OPENAI_API_KEY=your_openai_api_key_here
-
+   ```
 
 5. Run the application:
    ```bash
    flask run
    ```
 
-6. Open your browser and navigate to:
-   ```
-   http://127.0.0.1:5000
-   ```
-
----
-
-## Usage
-
-1. Open the application in your browser.
-2. Use the voice input feature to fill out form fields.
-3. Submit the form to save data to the database.
-
----
-
-## Screenshots
-Following are screenshots
- Following are screenshots:
+arduino
+Copy code
+http://127.0.0.1:5000
+Usage
+Open the application in your browser.
+Use the voice input feature to fill out form fields, leveraging the Web Speech API.
+Submit the form to save data to the database.
+Screenshots
+Following are screenshots:
 
 ![Sign up](screenshots/screenshot1.png)
 ![Sign in](screenshots/screenshot2.png)
 ![main page](screenshots/screenshot3.png)
 ---
  
-## project structure 
-
-BEYOND-QWERTY-MAIN
-├── screenshots
-│   ├── screenshot1.png
-│   ├── screenshot2.png
-│   └── screenshot3.png
-├── static
-│   ├── mic.svg
-│   └── script.js
-├── templates
-│   ├── index.html
-│   ├── signin.html
-│   └── signup.html
-├── venv
-├── .env
-├── app.py
-├── LICENSE
-├── README.md
-└── requirements.txt
-
-## certification
-HackerRank Python Certificate  https://www.hackerrank.com/certificates/2759fb091576
-HackerRank SQL Certificate     https://www.hackerrank.com/certificates/a216c46fb0dd
 
 ## License
 
 This project is licensed under the [MIT License](LICENSE).
 
----
+
+ ## Certificates
+
+HackerRank Python Certificate https://www.hackerrank.com/certificates/2759fb091576
+
+HackerRank SQL Certificate    https://www.hackerrank.com/certificates/a216c46fb0dd
+ 
+
 
 ## Contact
+For any inquiries or support, feel free to contact:
+
+Name: Vaibhav Sunil Shimpi
+GitHub: Vaibhav-prog-creator
+
+
 
 For any inquiries or support, feel free to contact:
 
