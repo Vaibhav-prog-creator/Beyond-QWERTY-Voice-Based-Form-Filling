@@ -3,6 +3,10 @@
 This project is an educational **form-filling application** that allows users to fill out forms using **voice input**, aiming to provide a seamless and user-friendly experience. The app features a modern, visually appealing front end and a robust backend using Python with Flask.
 
 ---
+## project Deployment 
+
+You can access the live deployed version of the project here:
+https://beyond-qwerty-voice-based-form-filling-1.onrender.com
 
 ## Features
 
@@ -22,10 +26,10 @@ This project is an educational **form-filling application** that allows users to
 
 ### Backend
 - **Python** with Flask framework
-- OpenAI's Speech-to-Text API for voice input processing
+- Web Speech-to-Text API for voice input processing
 
 ### Database
-- **MySQL**: Data stored in the `education_form` database, specifically in the `registrations` table
+- **MySQL**: Data stored in the `sql12754845` database, specifically in the `form_data` table
 
 ### Other Tools and Libraries
 - Flask-SQLAlchemy for database interaction
@@ -61,11 +65,17 @@ This project is an educational **form-filling application** that allows users to
 
 4. Create a `.env` file for sensitive configurations:
    ```env
-   FLASK_APP=app.py
-   FLASK_ENV=development
-   DATABASE_URI=mysql+pymysql://username:password@localhost/education_form
-   OPENAI_API_KEY=your_openai_api_key
-   ```
+
+FLASK_APP=app.py
+FLASK_ENV=development
+SECRET_KEY=a4f5d9e7b2c0a8f4d1b7c3e9f1f0b6a2
+DB_HOST=sql12.freesqldatabase.com
+DB_USER=sql12754845
+DB_PASSWORD=LWrgRcrnVZ
+DB_NAME=sql12754845
+DATABASE_URL=mysql+pymysql://sql12754845:LWrgRcrnVZ@sql12.freesqldatabase.com:3306/sql12754845
+OPENAI_API_KEY=your_openai_api_key_here
+
 
 5. Run the application:
    ```bash
@@ -96,6 +106,30 @@ Following are screenshots
 ![main page](screenshots/screenshot3.png)
 ---
  
+## project structure 
+
+BEYOND-QWERTY-MAIN
+├── screenshots
+│   ├── screenshot1.png
+│   ├── screenshot2.png
+│   └── screenshot3.png
+├── static
+│   ├── mic.svg
+│   └── script.js
+├── templates
+│   ├── index.html
+│   ├── signin.html
+│   └── signup.html
+├── venv
+├── .env
+├── app.py
+├── LICENSE
+├── README.md
+└── requirements.txt
+
+## certification
+HackerRank Python Certificate  https://www.hackerrank.com/certificates/2759fb091576
+HackerRank SQL Certificate     https://www.hackerrank.com/certificates/a216c46fb0dd
 
 ## License
 
