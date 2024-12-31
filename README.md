@@ -67,14 +67,14 @@ Install the required dependencies:
 4. Create a `.env` file for sensitive configurations:
    ```env
    FLASK_APP=app.py
-FLASK_ENV=development
-SECRET_KEY=a4f5d9e7b2c0a8f4d1b7c3e9f1f0b6a2
+   FLASK_ENV=development
+   SECRET_KEY=a4f5d9e7b2c0a8f4d1b7c3e9f1f0b6a2
 
-DB_HOST=sql12.freesqldatabase.com
-DB_USER=sql12754845
-DB_PASSWORD=LWrgRcrnVZ
-DB_NAME=sql12754845
-DATABASE_URL=mysql+pymysql://sql12754845:LWrgRcrnVZ@sql12.freesqldatabase.com:3306/sql12754845
+   DB_HOST=sql12.freesqldatabase.com
+   DB_USER=sql12754845
+   DB_PASSWORD=LWrgRcrnVZ
+   DB_NAME=sql12754845
+   DATABASE_URL=mysql+pymysql://sql12754845:LWrgRcrnVZ@sql12.freesqldatabase.com:3306/sql12754845
    ```
 
 5. Run the application:
