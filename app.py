@@ -10,12 +10,13 @@ load_dotenv()
 app = Flask(__name__)
 app.secret_key = os.getenv('SECRET_KEY', 'a4f5d9e7b2c0a8f4d1b7c3e9f1f0b6a2')
 
-# Database configuration
+# Database configuration (Updated with provided details)
 db_config = {
-    "host": os.getenv("DB_HOST", "127.0.0.1"),
-    "user": os.getenv("DB_USER", "root"),
-    "password": os.getenv("DB_PASSWORD", "root"),
-    "database": os.getenv("DB_NAME", "form")
+    "host": "sql12.freesqldatabase.com",  # Updated host
+    "user": "sql12754845",  # Updated user
+    "password": "LWrgRcrnVZ",  # Updated password
+    "database": "sql12754845",  # Updated database name
+    "port": 3306  # Port for the MySQL server
 }
 
 # Default Route - Sign Up Page
@@ -49,7 +50,7 @@ def signup():
             connection.close()
             
             # Redirect to Sign In page after successful sign up
-            return redirect(url_for('signin'))
+            return redirect(url_for('signin'))  # Make sure to use 'signin' here
         
         except mysql.connector.Error as err:
             return f"Error: {err}"

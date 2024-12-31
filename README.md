@@ -56,8 +56,8 @@ This project is an educational **form-filling application** that allows users to
    ```
 
 3. Set up the database:
-   - Create a database named `education_form`.
-   - Ensure the `registrations` table is properly set up using migrations or SQL scripts provided.
+   - Create a database named `sql12754845`.
+   - Ensure the `form_data` table is properly set up using migrations or SQL scripts provided.
 
 4. Create a `.env` file for sensitive configurations:
    ```env
