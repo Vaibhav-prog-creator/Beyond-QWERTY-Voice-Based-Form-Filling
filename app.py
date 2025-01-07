@@ -10,13 +10,13 @@ load_dotenv()
 app = Flask(__name__)
 app.secret_key = os.getenv('SECRET_KEY', 'a4f5d9e7b2c0a8f4d1b7c3e9f1f0b6a2')
 
-# Database configuration (Updated with provided details)
+# Updated Database configuration
 db_config = {
     "host": "sql12.freesqldatabase.com",  # Updated host
-    "user": "sql12754845",  # Updated user
-    "password": "LWrgRcrnVZ",  # Updated password
-    "database": "sql12754845",  # Updated database name
-    "port": 3306  # Port for the MySQL server
+    "user": "sql12756184",               # Updated user
+    "password": "zU3AwXzvFX",            # Updated password
+    "database": "sql12756184",           # Updated database name
+    "port": 3306                         # Port for the MySQL server
 }
 
 # Default Route - Sign Up Page
@@ -140,3 +140,4 @@ def logout():
 
 if __name__ == "__main__":
     app.run(debug=True)
+
