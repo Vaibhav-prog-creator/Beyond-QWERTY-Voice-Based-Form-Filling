@@ -10,14 +10,15 @@ load_dotenv()
 app = Flask(__name__)
 app.secret_key = os.getenv('SECRET_KEY', 'a4f5d9e7b2c0a8f4d1b7c3e9f1f0b6a2')
 
-# Updated Database configuration
-db_config = {
-    "host": "sql12.freesqldatabase.com",  # Updated host
-    "user": "sql12756184",               # Updated user
-    "password": "zU3AwXzvFX",            # Updated password
-    "database": "sql12756184",           # Updated database name
-    "port": 3306                         # Port for the MySQL server
-}
+# Database connection function
+def get_db_connection():
+    return mysql.connector.connect(
+        host="sql12.freesqldatabase.com",  # Updated database host
+        user="sql12757752",                # Updated database user
+        password="CyQ7LMcLMM",             # Updated database password
+        database="sql12757752",            # Updated database name
+        port=3306                          # Default MySQL port
+    )
 
 # Default Route - Sign Up Page
 @app.route("/", methods=["GET", "POST"])
@@ -31,7 +32,7 @@ def signup():
         hashed_password = generate_password_hash(password)
 
         try:
-            connection = mysql.connector.connect(**db_config)
+            connection = get_db_connection()
             cursor = connection.cursor()
             
             # Check if the user already exists
@@ -50,7 +51,7 @@ def signup():
             connection.close()
             
             # Redirect to Sign In page after successful sign up
-            return redirect(url_for('signin'))  # Make sure to use 'signin' here
+            return redirect(url_for('signin'))
         
         except mysql.connector.Error as err:
             return f"Error: {err}"
@@ -66,13 +67,13 @@ def signin():
         password = request.form.get("password")
         
         try:
-            connection = mysql.connector.connect(**db_config)
+            connection = get_db_connection()
             cursor = connection.cursor()
             
             # Verify user credentials
             query = "SELECT * FROM users WHERE email = %s"
             cursor.execute(query, (email,))
-            user = cursor.fetchone()  # Fetch the user row
+            user = cursor.fetchone()
             
             cursor.close()
             connection.close()
@@ -80,9 +81,9 @@ def signin():
             # If user exists and password is correct
             if user and check_password_hash(user[3], password):  # user[3] contains the hashed password
                 session['user'] = user[1]  # Store the username in the session
-                return redirect(url_for('index'))  # Redirect to the main page
+                return redirect(url_for('index'))
             
-            return "Invalid credentials!"  # Show error if the credentials are incorrect
+            return "Invalid credentials!"
         
         except mysql.connector.Error as err:
             return f"Error: {err}"
@@ -109,7 +110,7 @@ def index():
         percentage_10th = request.form.get("percentage_10th")  # New field
         
         try:
-            connection = mysql.connector.connect(**db_config)
+            connection = get_db_connection()
             cursor = connection.cursor()
             
             # Insert form data including the new fields into the database
@@ -140,4 +141,3 @@ def logout():
 
 if __name__ == "__main__":
     app.run(debug=True)
-
